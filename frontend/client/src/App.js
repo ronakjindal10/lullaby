@@ -4,12 +4,15 @@ import axios from 'axios';
 function App() {
     const [prompt, setPrompt] = useState('');
     const [audioUrl, setAudioUrl] = useState(null);
+    const apiUrl = "https://lullaby-api.onrender.com"
 
     const handleGenerateStory = async () => {
         try {
-            const response = await axios.post('http://localhost:3001/api/story', { prompt });
+            //const response = await axios.post('http://localhost:3001/api/story', { prompt });
+            const response = await axios.post(`${apiUrl}/api/story`, { prompt });
             const { audioFileName } = response.data;
-            const audioUrl = `http://localhost:3001/api/audio/${audioFileName}`;
+            //const audioUrl = `http://localhost:3001/api/audio/${audioFileName}`;
+            const audioUrl = `${apiUrl}/api/audio/${audioFileName}`;
             setAudioUrl(audioUrl);
         } catch (error) {
             console.error('Error generating story or audio', error);
