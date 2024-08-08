@@ -8,7 +8,7 @@ function App() {
 
     const handleGenerateStory = async () => {
         try {
-            //const response = await axios.post('http://localhost:3001/api/story', { prompt });
+            // const response = await axios.post('http://localhost:3001/api/story', { prompt });
             const response = await axios.post(`${apiUrl}/api/story`, { prompt });
             const { audioFileName } = response.data;
             //const audioUrl = `http://localhost:3001/api/audio/${audioFileName}`;
